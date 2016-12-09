@@ -58,7 +58,7 @@
 					<th>操作</th>
 				</tr>
 				<tr id="product_id_0">
-					<td class="thumb"><img src="images/product/0.jpg" /><a href="product-view.jsp">铁三角 Audio-Technica ATH-EQ300M-SV 银色 挂耳式耳机</a></td>
+					<td class="thumb"><img src="images/product/0.jpg" /><a href="../WEB-INF/manage/product-view.jsp">铁三角 Audio-Technica ATH-EQ300M-SV 银色 挂耳式耳机</a></td>
 					<td class="price" id="price_id_0">
 						<span>￥99.00</span>
 						<input type="hidden" value="99" />
@@ -71,7 +71,7 @@
 					<td class="delete"><a href="javascript:void(0)">删除</a></td>
 				</tr>
                 <tr id="product_id_1">
-                    <td class="thumb"><img src="images/product/0.jpg" /><a href="product-view.jsp">铁三角 Audio-Technica ATH-EQ300M-SV 银色 挂耳式耳机</a></td>
+                    <td class="thumb"><img src="images/product/0.jpg" /><a href="../WEB-INF/manage/product-view.jsp">铁三角 Audio-Technica ATH-EQ300M-SV 银色 挂耳式耳机</a></td>
                     <td class="price" id="price_id_1">
                         <span>￥99.00</span>
                         <input type="hidden" value="99" />

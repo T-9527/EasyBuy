@@ -60,23 +60,23 @@
             <h2>商品分类</h2>
             <dl>
                 <dt>图书音像</dt>
-                <dd><a href="product-list.html">图书</a></dd>
-                <dd><a href="product-list.html">音乐</a></dd>
+                <dd><a href="/homePage/list/图书">图书</a></dd>
+                <dd><a href="/homePage/list/音乐">音乐</a></dd>
                 <dt>百货</dt>
-                <dd><a href="product-list.html">运动健康</a></dd>
-                <dd><a href="product-list.html">服装</a></dd>
-                <dd><a href="product-list.html">家居</a></dd>
-                <dd><a href="product-list.html">美妆</a></dd>
-                <dd><a href="product-list.html">母婴</a></dd>
-                <dd><a href="product-list.html">食品</a></dd>
-                <dd><a href="product-list.html">手机数码</a></dd>
-                <dd><a href="product-list.html">家具首饰</a></dd>
-                <dd><a href="product-list.html">手表饰品</a></dd>
-                <dd><a href="product-list.html">鞋包</a></dd>
-                <dd><a href="product-list.html">家电</a></dd>
-                <dd><a href="product-list.html">电脑办公</a></dd>
-                <dd><a href="product-list.html">玩具文具</a></dd>
-                <dd><a href="product-list.html">汽车用品</a></dd>
+                <dd><a href="/homePage/list/运动健康">运动健康</a></dd>
+                <dd><a href="/homePage/list/服装">服装</a></dd>
+                <dd><a href="/homePage/list/家居">家居</a></dd>
+                <dd><a href="/homePage/list/美妆">美妆</a></dd>
+                <dd><a href="/homePage/list/母婴">母婴</a></dd>
+                <dd><a href="/homePage/list/食品">食品</a></dd>
+                <dd><a href="/homePage/list/手机数码">手机数码</a></dd>
+                <dd><a href="/homePage/list/家具首饰">家具首饰</a></dd>
+                <dd><a href="/homePage/list/手表饰品">手表饰品</a></dd>
+                <dd><a href="/homePage/list/鞋包">鞋包</a></dd>
+                <dd><a href="/homePage/list/家电">家电</a></dd>
+                <dd><a href="/homePage/list/电脑办公">电脑办公</a></dd>
+                <dd><a href="/homePage/list/玩具文具">玩具文具</a></dd>
+                <dd><a href="/homePage/list/汽车用品">汽车用品</a></dd>
             </dl>
         </div>
         <div class="spacer"></div>
@@ -105,9 +105,9 @@
                 <c:forEach items="${product.datas}" var="i">
                 <li>
                     <dl>
-                        <dt><a href="product-view.html"  target="_self"><img src="${i.filePath}" /></a></dt>
-                        <dd class="title"><a href="product-view.html" target="_self">${i.p_name}</a></dd>
-                        <dd class="price">${i.price}</dd>
+                        <dt><a href="/product/detail/${i.id}"  target="_self"><img src="${i.filePath}" /></a></dt>
+                        <dd class="title"><a href="/product/detail/${i.id}" target="_self">${i.p_name}</a></dd>
+                        <dd class="price">￥${i.price}</dd>
                     </dl>
                 </li>
                 </c:forEach>

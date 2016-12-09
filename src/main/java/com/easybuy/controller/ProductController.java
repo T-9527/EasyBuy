@@ -152,7 +152,13 @@ public class ProductController {
         return "redirect:/product/categoryManage";
     }
 
-
+    //跳转商品详情页面
+    @GetMapping(value = "detail/{id}")
+    public String detail(@PathVariable int id,Model model){
+        Product p = iProductService.load(id);
+        model.addAttribute("product",p);
+        return "product-view";
+    }
 
     public IPro_categoryService getiPro_categoryService() {
         return iPro_categoryService;
