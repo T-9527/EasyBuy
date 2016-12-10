@@ -1,6 +1,8 @@
 package com.easybuy.controller;
 
+import com.easybuy.model.Pro_category;
 import com.easybuy.model.Product;
+import com.easybuy.service.IPro_categoryService;
 import com.easybuy.service.IProductService;
 import com.easybuy.util.Pager;
 import org.springframework.stereotype.Controller;
@@ -20,13 +22,17 @@ import java.util.List;
 public class HomePageController {
 
     private IProductService iProductService;
+    private IPro_categoryService iPro_categoryService;
 
     // 取出数据用于主页显示
     @GetMapping(value = "show")
     public String homePageShow(Model model){
         String hql = "from Product";
+        String hql1 = "from Pro_category";
+        List<Pro_category> list = iPro_categoryService.list(hql1);
         Pager<Product> pager = iProductService.pageList(hql,null);
         model.addAttribute("product",pager);
+        model.addAttribute("category",list);
         return "index";
     }
 
@@ -37,8 +43,11 @@ public class HomePageController {
         Pager<Product> pager = iProductService.pageList(hql,null);
         model.addAttribute("pager",pager);
         model.addAttribute("category",category);
-        System.out.println(pager.getDatas()+"=============="+category);
         return "product-list";
+    }
+    @Resource
+    public void setiPro_categoryService(IPro_categoryService iPro_categoryService) {
+        this.iPro_categoryService = iPro_categoryService;
     }
 
     @Resource

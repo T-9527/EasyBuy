@@ -160,6 +160,18 @@ public class ProductController {
         return "product-view";
     }
 
+    //跳转销量页面
+    @GetMapping(value = "salesVolume")
+    public String salesVolume(){
+        return "salesVolume";
+    }
+
+    //跳转销量页面
+    @GetMapping(value = "salesVolumeAjax")
+    public void salesVolumeAjax(){
+
+    }
+
     public IPro_categoryService getiPro_categoryService() {
         return iPro_categoryService;
     }
