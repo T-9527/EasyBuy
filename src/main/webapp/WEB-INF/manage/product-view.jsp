@@ -87,7 +87,8 @@
 				<c:if test="${product.stock<1}">
 					缺货
 				</c:if>
-				&nbsp;${product.stock} 件
+				&nbsp;${product.stock} 件<br/>
+				地区：${product.address}
 			  <div class="button"><input type="button" name="button" value="" onclick="location.href = '../../page/address.jsp'" /><a href="../../page/shopping.jsp">放入购物车</a></div>
 			</div>
 			<div class="clear"></div>

@@ -9,6 +9,12 @@
     <script type="text/javascript" src="../../resources/scripts/jquery-1.8.3.min.js"></script>
     <script type="text/javascript" src="../../resources/scripts/function.js"></script>
     <meta charset="utf-8"/>
+    <style type="text/css">
+        form{
+            float: left;
+            line-height: 30px;
+        }
+    </style>
 </head>
 <body>
 <%--
@@ -36,20 +42,26 @@
     <div class="wrap">
         <span  style="float: left;font-size: 20px; color:white;line-height: 30px;" >货物搜索：</span>
         <span  style="float: left;line-height: 30px;">&nbsp;按分类：</span>
-        <select name="category" id="" onchange="search();"  style="float: left;margin-top: 6px;">
+        <select name="category" id="category" onchange="search();"  style="float: left;margin-top: 6px;">
             <c:forEach items="${category}" var="i">
                  <option value="${i.name}">${i.name}</option>
             </c:forEach>
         </select>
-        <sapn  style="float: left;line-height: 30px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;按价格：</sapn>
-        <form action="/homePage/byPrice" method="post" style="float: left;line-height: 30px;">
-        <input type="text" name="minPrice" style="width: 50px;">
+        <script type="text/javascript">
+                function search() {
+                    var i = $("#category").val();
+                   location.href="/homePage/list/"+i;
+                }
+        </script>
+        <sapn style="float: left;line-height: 30px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;按价格：</sapn>
+        <form action="/homePage/byPrice" method="post">
+            <input type="text" name="minPrice" style="width: 50px;">
             <span style="font-weight: bolder;color: white;">-</span>
             <input type="text" name="maxPrice" style="width: 50px;">
             <input type="submit" value="搜索">
         </form>
         <sapn style="float: left;line-height: 30px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;按地址：</sapn>
-        <form action="/homePage/address" method="post" style="float: left;line-height: 30px;">
+        <form action="/homePage/byAddress" method="post">
             <input type="text" name="address" style="width: 100px;">
             <input type="submit" value="搜索">
         </form>

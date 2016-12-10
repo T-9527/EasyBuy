@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
  * Created by Administrator on 2016/12/7.
  */
 @Repository
-public class Pro_categoryDaoImp extends BaseDao<Pro_category> implements IPro_categoryDao{
+public class Pro_categoryDaoImp extends BaseDaoImp<Pro_category> implements IPro_categoryDao{
 
     public Pro_category getByName(String name) {
         return (Pro_category) getsession().createQuery("from Pro_category where name=:name")

@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Created by Administrator on 2016/11/25.
  */
-public class BaseDao<T>extends HibernateDaoSupport implements IBaseDao<T> {
+public class BaseDaoImp<T>extends HibernateDaoSupport implements IBaseDao<T> {
     private Class<T> cla;
     public Session getsession(){
        return this.getHibernateTemplate().getSessionFactory().getCurrentSession();

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
@@ -36,7 +37,7 @@ public class HomePageController {
         return "index";
     }
 
-    //跳转到product-list页面
+    //按分类跳转到product-list页面
     @GetMapping(value = "list/{category}")
     public String productList(@PathVariable String category, Model model){
         String hql = "from Product where pro_category.name='"+category+"'";
@@ -45,6 +46,28 @@ public class HomePageController {
         model.addAttribute("category",category);
         return "product-list";
     }
+
+    //按价格显示
+    @PostMapping(value = "byPrice")
+    public String byPrice(int minPrice,int maxPrice,Model model){
+        String hql = "form Product where price>"+minPrice+".0 and price<"+maxPrice+".0";
+        String hql1 = "from Product where price>1.0 and price<100.0";
+        Pager<Product> list = iProductService.pageList(hql1,null);
+        System.out.println(list+"1111111111");
+        model.addAttribute("pager",list);
+        return "product-list";
+    }
+
+    //按地区显示
+    @PostMapping(value = "byAddress")
+    public String address(String address,Model model){
+        String hql = "from Product where address='"+address+"'";
+        Pager<Product> list = iProductService.pageList(hql,null);
+        System.out.println(list);
+        model.addAttribute("pager",list);
+        return "product-list";
+    }
+
     @Resource
     public void setiPro_categoryService(IPro_categoryService iPro_categoryService) {
         this.iPro_categoryService = iPro_categoryService;
