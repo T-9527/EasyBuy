@@ -101,6 +101,7 @@
 						</dl>
 					</li>
 				</c:forEach>
+					<h1 style="text-align: center;color: red;">${data}</h1>
 			</ul>
 			<div class="clear"></div>
 			<div class="pager">

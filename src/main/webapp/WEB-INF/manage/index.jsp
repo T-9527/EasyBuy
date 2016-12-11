@@ -54,17 +54,49 @@
                 }
         </script>
         <sapn style="float: left;line-height: 30px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;按价格：</sapn>
-        <form action="/homePage/byPrice" method="post">
-            <input type="text" name="minPrice" style="width: 50px;">
+        <form action="/homePage/byPrice" method="post" onsubmit="return price();">
+            <input id ="minPrice" type="text" name="minPrice" style="width: 50px;" placeholder="最低价">
             <span style="font-weight: bolder;color: white;">-</span>
-            <input type="text" name="maxPrice" style="width: 50px;">
+            <input id="maxPrice" type="text" name="maxPrice" style="width: 50px;" placeholder="最高价">
             <input type="submit" value="搜索">
         </form>
         <sapn style="float: left;line-height: 30px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;按地址：</sapn>
-        <form action="/homePage/byAddress" method="post">
-            <input type="text" name="address" style="width: 100px;">
+        <form action="/homePage/byAddress" method="post" onsubmit="return addr();">
+            <input id="address" type="text" name="address" style="width: 100px;">
             <input type="submit" value="搜索">
         </form>
+        <script type="text/javascript">
+            var a = false;
+            var b = false;
+            function addr() {
+                var i = $("#address").val();
+                if(i!=null&&i!=""){
+                    a=true;
+                }else {
+                    alert("请输入要搜索的地址！");
+                }
+                return a;
+            }
+            function price() {
+                var max = $("#maxPrice").val();
+                var min = $("#minPrice").val();
+                if(min!=null&&min!=""&&max!=null&&max!=""){
+                    if(!/[0-9]{1,}/.test(min)||!/[0-9]{1,}/.test(max)){
+                        alert("请输入数字");
+                    }else {
+                        if(min>max){
+                            alert("最低价不能大于最高价！");
+                        }else {
+                            b=true;
+                        }
+                    }
+                }else {
+                    alert("请输入查询的价格区间！");
+                    b=false;
+                }
+                return b;
+            }
+        </script>
     </div>
 </div>
 <div id="main" class="wrap">

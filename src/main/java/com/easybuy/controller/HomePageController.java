@@ -42,18 +42,24 @@ public class HomePageController {
     public String productList(@PathVariable String category, Model model){
         String hql = "from Product where pro_category.name='"+category+"'";
         Pager<Product> pager = iProductService.pageList(hql,null);
-        model.addAttribute("pager",pager);
-        model.addAttribute("category",category);
+        System.out.println(pager.getDatas()+"---------");
+        if (pager.getDatas()==null||pager.getDatas().equals(" ")){
+            model.addAttribute("data","暂无数据");
+        }else {
+            model.addAttribute("pager", pager);
+        }
+        model.addAttribute("category", category);
         return "product-list";
     }
 
     //按价格显示
     @PostMapping(value = "byPrice")
     public String byPrice(int minPrice,int maxPrice,Model model){
-        String hql = "form Product where price>"+minPrice+".0 and price<"+maxPrice+".0";
-        String hql1 = "from Product where price>1.0 and price<100.0";
-        Pager<Product> list = iProductService.pageList(hql1,null);
-        System.out.println(list+"1111111111");
+        if(minPrice>maxPrice){
+            minPrice=maxPrice;
+        }
+        String hql = "from Product where price>"+minPrice+" and price<"+maxPrice;
+        Pager<Product> list = iProductService.pageList(hql,null);
         model.addAttribute("pager",list);
         return "product-list";
     }
