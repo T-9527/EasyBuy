@@ -39,6 +39,7 @@
     SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     String time = simpleDateFormat.format(new Date());
 %>
+<a href="/user/k">跳转k</a>
 <center>
         <div id="product"></div>
         <button id="btn">刷新</button><br/><br/><br/>

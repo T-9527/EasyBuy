@@ -68,14 +68,14 @@
 					<tr>
 					<td class="field">验证码：</td>
 						<td>
-                            <img src="/user/login" id="safeCode"/><a id="changeCode">看不清，换一张</a><br>
+                            <img src="/lzf" id="safeCode"/><a id="changeCode">看不清，换一张</a><br>
 	                        <input type="text" name="code"><div class="mess"></div>
 							<span></span>
-							<script>
-								$('#changeCode').click(function () {
-									location.reload();
-								});
-							</script>
+                            <script type="text/javascript">
+                                $(function(){
+                                    $('#changeCode').click(function () { $("#safeCode").attr('src', '/lzf?' + Math.floor(Math.random()*100) ); })
+                                });
+                            </script>
 						</td>
 					</tr>
 					<tr>

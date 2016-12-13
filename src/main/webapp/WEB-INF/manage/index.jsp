@@ -58,12 +58,12 @@
             <input id ="minPrice" type="text" name="minPrice" style="width: 50px;" placeholder="最低价">
             <span style="font-weight: bolder;color: white;">-</span>
             <input id="maxPrice" type="text" name="maxPrice" style="width: 50px;" placeholder="最高价">
-            <input type="submit" value="搜索">
+            <input type="submit" value=" 搜索 " style="background-color: olivedrab;color: white;">
         </form>
         <sapn style="float: left;line-height: 30px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;按地址：</sapn>
         <form action="/homePage/byAddress" method="post" onsubmit="return addr();">
             <input id="address" type="text" name="address" style="width: 100px;">
-            <input type="submit" value="搜索">
+            <input type="submit" value=" 搜索 " style="background-color: olivedrab;color: white;">
         </form>
         <script type="text/javascript">
             var a = false;

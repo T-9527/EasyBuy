@@ -136,7 +136,13 @@ public class UserController {
 
     @PostMapping(value = "realLogin")
     public String login(String username, String password, String code,HttpServletRequest request){
-        if(code.equals(request.getSession().getAttribute(code))){
+       /* if(code.equals(request.getSession().getAttribute(code))){
+            System.out.println("yes!");
+        }else {
+            System.out.println("no!");
+        }*/
+       //谷歌kaptcha验证码
+        if (code.equals(request.getSession().getAttribute(com.google.code.kaptcha.Constants.KAPTCHA_SESSION_KEY))){
             System.out.println("yes!");
         }else {
             System.out.println("no!");
@@ -156,5 +162,11 @@ public class UserController {
         }
         model.addAttribute("list",list);
         return "salesVolume";
+    }
+
+    //跳转k线图页面
+    @GetMapping(value = "k")
+    public String k(){
+        return "K";
     }
 }

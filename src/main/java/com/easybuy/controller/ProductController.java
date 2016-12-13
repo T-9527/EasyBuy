@@ -45,9 +45,8 @@ public class ProductController {
     public String add(Product product,
                       MultipartFile photo, BindingResult br, HttpSession session) throws IOException {
         //获取部署路径
-        //String path = session.getServletContext().getRealPath("/resources/images/product");
-
-        String path ="D:\\框架\\EasyBuy\\src\\main\\webapp\\resources\\images\\product";
+        String path = session.getServletContext().getRealPath("/resources/images/product");
+        //String path ="D:\\框架\\EasyBuy\\src\\main\\webapp\\resources\\images\\product";
         //文件路径
         File file = new File(path + File.separator + photo.getOriginalFilename());
         //保存文件
