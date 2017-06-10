@@ -25,7 +25,7 @@
     <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
         <property name="exceptionMappings">
             <props>
-                <prop key="com.ibeifeng.springmvc.exception.UserException">inc/error</prop>
+                <prop key="com.springmvc.exception.UserException">inc/error</prop>
             </props>
         </property>
     </bean>
